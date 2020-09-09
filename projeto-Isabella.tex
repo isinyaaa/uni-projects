@@ -1,0 +1,163 @@
+\documentclass[12pt,reqno]{amsart}
+
+
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\usepackage{psfrag}
+\usepackage{graphicx}
+\usepackage[english,brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fullpage}
+\usepackage{pdfpages}
+%----------------------------
+\usepackage{eurosym}
+
+\usepackage{color}
+\usepackage{geometry}
+%
+\geometry{left=25mm,right=25mm, top=23mm, bottom=25mm}
+
+%\usepackage[colorlinks,backref]{hyperref}
+\usepackage[]{hyperref}
+\usepackage{srcltx}
+\usepackage{multicol}
+\usepackage{array}
+
+%\setcounter{page}{-2}
+
+\makeatletter
+\renewcommand{\labelenumi}{\theenumi.}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\eps\varepsilon
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{note}% name
+  {3pt}%      Space above
+  {3pt}%      Space below 
+  {\sl}%      Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+                                %       \newline = linebreak
+  {}%         Thm head spec (can be left empty, meaning `normal')
+
+  
+  
+\def\tand{\ \text{and}\ }
+\def\qand{\quad\text{and}\quad}
+\def\qqand{\qquad\text{and}\qquad}
+
+\let\emptyset=\varnothing
+\let\setminus=\smallsetminus
+\let\backslash=\smallsetminus
+\let\subset\subseteq
+\let\log=\ln
+\let\phi=\varphi
+
+\newcommand{\Phibad}{\Phi_{\textsc{bad}}}
+%\homit make ``hom'' italic in definitions, lemmas and theorems.
+
+\newtheorem{teorema}             {Teorema}       
+\newtheorem{Afirmativa}[teorema] {Afirmativa}         
+\newtheorem{lema}      [teorema] {Lema}         
+\newtheorem{corolario} [teorema] {Corolário}     
+\newtheorem{fato}      [teorema] {Fato}          
+\newtheorem{conjectura}[teorema] {Conjectura}    
+\newtheorem{problema}  [teorema] {Problema}       
+
+\theoremstyle{note}
+\newtheorem{propriedade}  [teorema] {Propriedade}       
+\newtheorem{definicao}  [teorema] {Definição}       
+\newtheorem{exercicio}  [teorema] {Exercício}       
+
+
+\usepackage{setspace}
+\onehalfspacing
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+
+
+\title[]{Tópicos clássicos e contemporâneos em\\ Combinatória Extremal\\
+\ \\ Projeto de iniciação científica}
+
+ \thanks{isabellabdoamaral@usp.br, mota@ime.usp.br}
+%   
+\maketitle
+\thispagestyle{empty}
+
+
+\indent{\bf Aluna:} Isabella Basso do Amaral\\
+\indent{\bf Orientador:} Guilherme Oliveira Mota
+
+
+{\selectlanguage{brazil}
+\begin{abstract}
+Este é o projeto para a iniciação científica de Isabella Basso do
+Amaral, a ser desenvolvido sob a supervisão de Guilherme Oliveira
+Mota.
+Propomos a investigação de tópicos importantes da Combinatória
+Extremal, desde os clássicos resultados até importantes técnicas recentes.
+\end{abstract}
+
+
+\section{Introdução}
+
+Temos visto nos últimos anos um crescente desenvolvimento na área de
+Combinatória, em particular em Combinatória Extremal, que é a parte da
+Combinatória dedicada a investigar o quão grande (ou pequeno) um
+conjunto de estruturas matemáticas pode ser, quando consideramos um
+grupo de restrições.
+Além de clássicos teoremas que continuam sendo utilizados com sucesso
+na resolução de diversos problemas, novos métodos surgidos nos últimos
+anos vêm permitindo avanços importantes em problemas que antes eram
+considerados de difícil abordagem.
+Como exemplo, podemos citar o \emph{Método de Containers em
+  Hipergrafos}, desenvolvido a apenas alguns anos atrás, de forma
+independente, por Saxton e Thomasson~\cite{SaTh15} e por Balogh,
+Morris e Samotij~\cite{BaMoSa15}. 
+
+
+Neste projeto propomos o estudo avançado de resultados e técnicas
+clássicas de Combinatória, bem como a investigação das estratégias
+modernas surgidas ao longo das últimas décadas.
+Para isso, a aluna estudará principalmente tópicos selecionados
+de~\cite{Ju11} e os capítulos sobre Combinatória
+de~\cite{AiZi14}, que contém provas elegantes e concisas de
+resultados importantes da área.
+Além disso, serão estudados alguns capítulos de~\cite{Di18} para
+complementar a pesquisa.
+Mencionamos ainda que o livro de Bona~\cite{Bo17} será útil para
+dirimir dúvidas conceituais sobre Teoria de Grafos que surjam ao longo
+da execução do projeto.
+
+A metodologia a ser utilizada é padrão na área.
+Por ser uma pesquisa de cunho teórico, consistirá do
+estudo da bibliografia combinada com reuniões semanais com o
+orientador e outros alunos.
+As reuniões ocorrerão em conjunto com Yoshiharu Kohayakawa
+(IME--USP), colaborador frequente do orientador.
+Além disso, outros alunos de Iniciação Científica do grupo de pesquisa
+participarão dessas reuniões,
+permitindo que a aluna exponha os avanços obtidos e tenha contato com
+a pesquisa realizada pelos outros alunos, gerando um ambiente propício
+para o amadurecimento intelectual de todos os participantes. 
+
+Ao final do projeto, a aluna terá adquirido a base matemática
+necessária para estudar artigos científicos relevantes e trabalhar na
+solução de problemas em aberto na área.
+
+
+\bibliographystyle{amsplain}
+\bibliography{bibliografia}
+
+\end{document}
