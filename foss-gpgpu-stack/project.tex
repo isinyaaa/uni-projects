@@ -1,5 +1,5 @@
-\documentclass[10pt, conference]{IEEEtran}
-% \IEEEoverridecommandlockouts
+\documentclass[10pt, a4paper, draftcls, conference, onecolumn]{IEEEtran}
+\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -29,7 +29,7 @@
 % \thanks{Identify applicable funding agency here. If none, delete this.}
 }
 
-\author{\IEEEauthorblockN{Isabella Basso do Amaral}
+\author{\IEEEauthorblockN{Isabella Basso do Amaral} \\
 \and
 \IEEEauthorblockN{Orientador: Alfredo Goldman}
 \IEEEauthorblockA{\textit{Instituto de Matemática e Estatísica} \\
@@ -41,7 +41,19 @@ São Paulo, Brasil \\
 \maketitle
 
 \begin{abstract}
-    meow meow meow
+    A adoção, por parte da comunidade científica, de \textit{software} com
+    intuito de aproximar soluções para problemas relevantes no cenário
+    contemporâneo traz consigo desafios além dos técnicos, principalmente, no
+    que diz respeito à utilização de soluções livres para a execução de tais
+    pesquisas. Esta é essencial para que não violemos princípios básicos da
+    pesquisa científica como a entendemos nos dias de hoje, como por exemplo
+    o princípio da reprodutibilidade. No presente projeto, então, verificamos a
+    distribuição de pesquisas em relação à sua utilização de soluções livres ou
+    proprietárias, especificamente no contexto de \textit{GPU General
+    Programming} (GPGPU), assim como as disparidades entre opções livres e
+    proprietárias que dificultam o cenário ideal. A partir deste ponto,
+    exploramos os passos necessários para facilitar a adoção de soluções
+    livres, assim como o seu desenvolvimento.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -50,52 +62,52 @@ São Paulo, Brasil \\
 
 \section{Introdução}
 
-O computador tornou-se parte indispensável da pesquisa acadêmica, tendo
-funcionalidades que abrangem desde facilitar a leituras de artigos e livros até
-a resolução (aproximada) de problemas numéricos, que seriam insolúveis
-analiticamente.
+O computador tornou-se parte indispensável da pesquisa acadêmica, seja
+facilitando a leitura de artigos e livros ou ``resolvendo'' (aproximando)
+problemas numéricos, os quais são, em grande maioria, insolúveis sob o olhar
+analítico.
 
-Quanto ao último exemplo, gostaríamos de ressaltar, em especial, a capacidade
-de paralelizar tais problemas numéricos, de tal forma que conseguimos reduzir o
-tempo de execução. Otimizações no tratamento desses problemas são uma
-necessidade para o desenvolvimento da pesquisa científica como se dá atualmente.
+A aproximação de soluções para problemas numéricos em \textit{software}, embora
+não seja uma questão nova ou sequer teórica, demanda a utilização de técnicas
+avançadas de programação exigindo, por vezes, o uso de \textit{software}
+extremamente particular, complexo e que demanda conhecimento técnico
+específico, tanto da teoria quanto do \textit{software} em questão.
 
-\subsection{A GPU e sua importância na pesquisa contemporânea}
+\subsection{Otimização}
 
-Um componente especializado em paralelização é a GPU (\textit{Graphics
-Processing Unit}), ela vem sendo extensivamente utilizada para auxiliar na
-resolução de problemas físicos, biológicos, químicos e até mesmo da matemática
-moderna, tornando-se, por vezes, mais importante do que a CPU (\textit{Central
-Processing Unit}) do dito sistema.
+Também no que diz respeito aos problemas numéricos, gostaríamos de ressaltar,
+em especial, a possibilidade de paralelizá-los, agilizando (por vezes
+desproporcionalmente) a produção de resultados. Em diversos casos, tais
+otimizações são necessárias para que possamos produzir resultados
+oportunamente, levando em conta simplesmente a capacidade de paralelização do
+\textit{hardware} moderno \textit{versus} suas capacidades de execução linear,
+notamos que frequentemente ele é pelo menos milhares de vezes mais capaz na
+primeira categoria do que na segunda.
 
-Haja vista que a GPU é um componente de hardware, o que significa que é
-necessário comandá-la, idealmente abstraíndo detalhes do hardware específico,
-de tal forma que tenhamos fino controle sobre sua utilização porém sem
-comprometer seu desempenho (i.e. a abstração deve otimizar o que quer que seja
-tendo em mente o hardware específico).
+A GPU (\textit{Graphics Processing Unit}) é um componente especializado em
+tarefas de paralelização, de tal forma que, atualmente, é utilizada
+extensivamente para auxiliar na resolução de problemas nas áreas de física,
+biológia, química e até mesmo da matemática moderna sendo, por vezes, mais
+relevante do que a CPU (\textit{Central Processing Unit}) de um dado sistema em
+aplicações como aquelas da ciência de dados.
 
-\subsection{Compiladores}
+\subsection{Sobre o uso de \textit{software} livre em aplicações científicas e sua importância}\label{sec:soft-livre}
 
-Classicamente, utilizamos \textit{shaders} para a programação de GPUs, sendo
-mais ou menos análogos à programação de CPU. O código do \textit{shader} é,
-então, compilado em etapas, sendo primeiramente convertido para uma linguagem
-intermediária, onde é otimizado com base em conceitos primitivos próprios para
-abordagens de paralelização, como o \textit{thread} ou o \textit{block}.
-Depois, sendo convertido para um binário otimizado para a GPU específica onde
-será executado, e então enviado para o \textit{hardware}.
+No que tange a utilização de \textit{software} para aplicações científicas, nos
+preocupamos principalmente com a utilização de \textit{software} livre, que,
+estritamente falando, é aquele que se alinha perfeitamente com os princípios da
+pesquisa científica.
 
-\subsection{A relevância do \textit{software} livre no contexto científico}
+Chamamos de \textbf{\textit{software} livre} aquele que é aberto para ser lido
+e auditado, e que não depende de corporações (embora possa ser auxiliado por
+estas) para que se mantenha. Possuíndo comunidades autonomas de usuários e
+desenvolvedores que o mantém de acordo com interesses pessoais e plurais, porém
+não necessariamente sem o envolvimento de capital.
 
-Chamamos de \textbf{\textit{software} livre} aquele que não depende de
-corporações (embora possa ser auxiliado por estas) para que se mantenha.
-Possuíndo comunidades autonomas de usuários e desenvolvedores que o mantém
-de acordo com interesses pessoais e plurais, porém não necessariamente sem
-o envolvimento de capital.
-
-O \textit{software} livre permeia todo o contexto computacional moderno,
-sendo utilizado extensivamente na internet (e.g. $\approx X$ dos
-servidores utilizam \textit{Linux}), no contexto do desenvolvimento de
-\textit{software} e, especialmente, na pesquisa científica.
+O \textit{software} livre permeia todo o contexto computacional moderno, sendo
+utilizado extensivamente na internet (e.g. $\approx 80$ dos servidores utilizam
+\textit{Linux}), no contexto do desenvolvimento de \textit{software} e,
+especialmente, na pesquisa científica.
 
 Contrastamos tal com o \textbf{\textit{software} proprietário}, onde a
 contribuição de um indivíduo sempre será atrelada com interesses corporativos
@@ -103,29 +115,52 @@ pois pertence à uma empresa e é secreto sendo, portanto, impossível auditá-l
 
 Existe ainda o \textit{superset} de \textit{software} livre, que é o
 \textbf{\textit{software} aberto}, onde pode existir uma empresa que o mantém
-de acordo com seus interesses, porém este não é secreto, podendo ser auditado
-e aceitando contribuições individuais\footnote{
-    No presente projeto, no entanto, dedicaremos-nos exclusivamente à
-    problemática do \textit{software} livre X \textit{software} proprietário.
-}.
+de acordo com seus interesses, porém este não é secreto, podendo ser auditado e
+aceitando contribuições individuais\footnote{ No presente projeto, no entanto,
+vamos nos dedicar exclusivamente à problemática do \textit{software} livre X
+\textit{software} proprietário. }.
 
 Note, então, que a utilização de \textit{software} proprietário não cabe no
-contexto científico, pois demanda desmedida confiança à interesses corporativos,
-indo totalmente de encontro a princípios fundacionais da ciência como a temos
-hoje, onde reprodutibilidade e transparência são essenciais.
+contexto científico, pois demanda desmedida confiança à interesses
+corporativos, indo totalmente de encontro a princípios fundacionais da ciência
+como a temos hoje, onde reprodutibilidade e transparência são essenciais.
 
-Com isso em mente, advogamos pelo uso exclusivo do \textit{software} livre nesse
-contexto o que, infelizmente, ainda não é totalmente plausível.
+Com isso em mente, advogamos pelo uso exclusivo do \textit{software} livre
+nesse contexto o que, infelizmente, ainda não é totalmente plausível como será
+explorado mais a frente.
+
+\section{Justificativa}
+
+Haja vista que a GPU é um componente de \textit{hardware} sendo, então,
+necessário comandá-la de forma específica e precisa, idealmente gostaríamos de
+abstrair detalhes do \textit{hardware} específico, de tal forma que tenhamos
+fino controle sobre sua utilização, sem comprometer, porém, seu desempenho
+(i.e. a abstração deve otimizar o que quer que seja tendo em mente o
+\textit{hardware} específico).
+
+\subsection{Compiladores}
+
+Classicamente, utilizamos \textit{shaders} para a programação de GPUs, sendo
+mais ou menos análogos à programação de CPUs em sua sintaxe, mas não
+necessariamente em sua lógica, o que torna seu uso não-trivial para alguém sem
+o conhecimento específico. O código do \textit{shader} é compilado em
+etapas, sendo primeiramente convertido para uma linguagem intermediária, onde é
+otimizado com base em conceitos primitivos próprios para abordagens de
+paralelização. Depois, sendo convertido para um binário otimizado para a GPU
+específica onde será executado, e então enviado para o \textit{hardware}.
 
 \subsection{Comparando o \textit{software} livre com o proprietário para aplicações científicas}
 
-Como dito anteriormente, utilizamos \textit{shaders} para a programação de GPUs,
-e no contexto específico de aplicações numéricas, nosso interesse é voltado à
-\textbf{programação geral} com GPUs (GPGPU), onde temos utilização extensiva
-da linguagem \textbf{CUDA}, desenvolvida pela empresa NVIDIA.
+No contexto específico de aplicações numéricas, no presente projeto nosso
+interesse é voltado à \textbf{programação geral} com GPUs (GPGPU), onde temos
+utilização extensiva da linguagem \textbf{CUDA}, desenvolvida pela empresa
+NVIDIA -- uma pioneira em computação gráfica. Dada sua simplicidade e
+abrangência, o CUDA segue invicto em aplicações científicas que utilizam GPUs.
 
-Dada sua simplicidade e abrangência, o CUDA segue invicto em aplicações
-científicas, superando alternativas livres por uma grande margem.
+Gostaríamos de notar, no entanto, que essa é uma tecnologia proprietária, e que
+sua adoção supera a de alternativas livres por uma grande margem sendo, então,
+de grande importância para a comunidade científica contemporânea que existam
+alternativas viáveis e livres para essas aplicações, como dito em \ref{sec:soft-livre}.
 
 % \begin{figure}[h]
 %     \centering
@@ -134,17 +169,22 @@ científicas, superando alternativas livres por uma grande margem.
 %     \label{fig:cuda}
 % \end{figure}
 
-Esse fato nos traz diversos questionamentos que devem ser abordados no presente
+\section{Objetivos}
+
+Dada a utilização desproporcional do CUDA em relação à alternativas livres,
+possuímos diversos questionamentos que devem ser abordados no presente
 projeto, como:
 
 \begin{enumerate}
-    \item Onde o CUDA se sobressai em comparação às alternativas livres?
-    \item Como podemos diminuir essa diferença e facilitar a adoção de alternativas livres?
-    \item Quais são as dificuldades para que a migração ocorra e como podemos facilitá-la?
+    \item Qual a figura exata da adoção de \textit{software} livre para aplicações científicas?
+    \item Onde o CUDA se sobressai em comparação à essas alternativas?
+    \item Como podemos diminuir essa diferença e como facilitar a migração para soluções que usam exclusivamente código livre?
+    \item O cenário ideal é factível?
 \end{enumerate}
 
-Como alternativas ao CUDA, destacamos o \textbf{OpenCL} e o \textbf{Vulkan},
-que serão utilizados nas comparações.
+Como alternativas (livres) ao CUDA, destacamos o \textbf{OpenCL} e o
+\textbf{Vulkan}, os quais serão utilizados durante o projeto para
+aperfeiçoamento e comparações.
 
 % \begin{figure}[htbp]
 % \centerline{\includegraphics{fig1.png}}
@@ -152,17 +192,18 @@ que serão utilizados nas comparações.
 % \label{fig}
 % \end{figure}
 
+\section{Metodologia}
+
+\section{Cronograma}
+
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\bibitem{b1}
+\bibitem{b2}
+\bibitem{b3}
+\bibitem{b4}
+\bibitem{b5}
+\bibitem{b6}
+\bibitem{b7}
 \end{thebibliography}
-\vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
 
 \end{document}
