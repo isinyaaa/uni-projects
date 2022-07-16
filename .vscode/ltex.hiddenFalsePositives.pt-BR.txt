@@ -1,0 +1,1 @@
+{"rule":"HUNSPELL_RULE","sentence":"^\\QA consulta específica utilizada nesse caso foi \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q de tal forma que apenas os projetos com mais de 4 seguidores e mais de 4 estrelas foram mostrados, além de utilizarem qualquer uma das 3 linguagens (C, C++, CUDA).\\E$"}
